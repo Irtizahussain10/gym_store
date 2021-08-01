@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "./searchBar";
+import SearchBar from "../searchBar/searchBar";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import CategoryIcon from "@material-ui/icons/Category";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
