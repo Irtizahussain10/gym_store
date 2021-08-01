@@ -1,0 +1,22 @@
+.navBar {
+  display: block;
+  background-color: #059;
+  line-height: 40px;
+  font-size: 20px;
+  padding: 2px;
+  color: white;
+}
+
+ul {
+  margin: 0;
+  padding: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style-type: none;
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
