@@ -1,14 +1,16 @@
 import React from "react";
-import NavBar from "./components/navbar/navbar";
+import Routes from "./Routes/routes";
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavBar />
+        <Routes />
       </div>
     );
   }
 }
 
 export default App;
+
+//making categories dynamic

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SearchBar from "../searchBar/searchBar";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import CategoryIcon from "@material-ui/icons/Category";
@@ -14,19 +15,21 @@ class NavBar extends React.Component {
           <li id="searchBar">
             <SearchBar />
           </li>
-          <li id="quality">Quality</li>
-          <li id="store">Store</li>
-          <li id="categories">
-            <CategoryIcon />
-            Categories
+          <li id="store">
+            <Link to="/store">Store</Link>
           </li>
+          <Link to="/categories">
+            <li id="categories">
+              <CategoryIcon />
+              Categories
+            </li>
+          </Link>
           <li id="myCart">
             <ShoppingCartIcon /> My Cart
           </li>
           <li id="contactUs">
             <ContactSupportIcon /> Contact us
           </li>
-          <li id="login">Login</li>
         </ul>
       </header>
     );
