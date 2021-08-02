@@ -1,12 +1,21 @@
-.container {
+.Container {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 8px;
   margin: 5px;
   text-align: center;
+  font-size: 15px;
 }
 
 .category {
   box-shadow: 2px 2px 2px 2px rgb(214, 213, 213);
   padding: 3px;
+}
+
+.image {
+  float: left;
+}
+
+.description {
+  padding: 70px 0;
 }

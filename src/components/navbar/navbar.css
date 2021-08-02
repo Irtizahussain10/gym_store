@@ -20,3 +20,20 @@ li {
   display: flex;
   align-items: center;
 }
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.logo {
+  width: 20px;
+  height: 20px;
+  box-shadow: none;
+  border: none;
+  align-items: center;
+}

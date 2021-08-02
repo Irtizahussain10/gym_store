@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "../components/navbar/navbar";
 import Categories from "../components/categories/categories";
 import Store from "../components/store/store";
+import Home from "../components/home/home";
+import ContactUs from "../components/contactUs/contactUs";
 
 class Routes extends React.Component {
   render() {
@@ -11,7 +13,9 @@ class Routes extends React.Component {
         <Router>
           <NavBar />
           <Switch>
-            <Route exact path="/"></Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
           </Switch>
           <Switch>
             <Route exact path="/categories">
@@ -24,7 +28,9 @@ class Routes extends React.Component {
             </Route>
           </Switch>
           <Switch>
-            <Route exact path="/myCart"></Route>
+            <Route exact path="/contactUs">
+              <ContactUs />
+            </Route>
           </Switch>
         </Router>
       </div>

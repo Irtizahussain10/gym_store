@@ -14,7 +14,7 @@ class Store extends React.Component {
           ++key1;
           return (
             <div key={key1} className="storeItem">
-              <img src={item.image} />
+              <img alt="gym item" src={item.image} />
               <br />
               <span className="material">{item.material} </span>
               <span className="item">{item.item} </span>
@@ -34,7 +34,7 @@ class Store extends React.Component {
           ++key2;
           return (
             <div key={key2} className="storeItem">
-              <img src={item.image} />
+              <img alt="gym item" src={item.image} />
               <br />
               <span className="item">{item.type} </span>
               <span className="type">{item.item}</span>
@@ -53,7 +53,7 @@ class Store extends React.Component {
           ++key3;
           return (
             <div key={key3} className="storeItem">
-              <img src={item.image} />
+              <img alt="gym item" src={item.image} />
               <br />
               <span className="item">{item.type} </span>
               <span className="type">{item.item}</span>

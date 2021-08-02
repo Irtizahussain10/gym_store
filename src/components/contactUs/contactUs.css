@@ -1,0 +1,17 @@
+.contactDetails {
+  margin: 40px;
+  font-size: 20px;
+  text-align: center;
+  font-family: monospace;
+}
+
+.contactOptions {
+  width: 50%;
+  height: 50px;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.contactOptions:hover {
+  background-color: rgb(156, 156, 231);
+}
