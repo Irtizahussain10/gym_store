@@ -1,0 +1,53 @@
+.loginFormContainer {
+  width: 50%;
+  margin: 5% auto auto auto;
+  box-shadow: 2px 4px 4px grey, -2px 4px 4px grey;
+  border-radius: 15px;
+  text-align: center;
+  padding-bottom: 1%;
+}
+
+.formTitle {
+  background-image: linear-gradient(to right, #059, #0071ce);
+  line-height: 60px;
+  font-weight: normal;
+  color: white;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+  margin-bottom: 5%;
+}
+
+.inputLabel {
+  color: #059;
+  font-size: 20px;
+  margin: 3%;
+}
+
+.inputElement {
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10%;
+  margin-left: 10%;
+  align-items: center;
+  line-height: 30px;
+  padding: 5px;
+}
+
+.submitButton {
+  border: none;
+  background-image: linear-gradient(to right, #059, #0071ce);
+  color: white;
+  border-radius: 30px;
+  width: 60%;
+  margin-top: 4%;
+  line-height: 50px;
+  font-size: 20px;
+  font-family: monospace;
+  font-weight: lighter;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  box-shadow: 0px 0px 20px grey;
+}
