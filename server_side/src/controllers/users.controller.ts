@@ -23,8 +23,8 @@ class userControllers {
         },
       ];
     } else {
-      let user = await users.insertOne(credentials as any);
-      return [user];
+      let createUser = await users.insertOne(credentials as any);
+      return [createUser];
     }
   }
 

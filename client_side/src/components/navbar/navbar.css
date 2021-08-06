@@ -21,13 +21,14 @@ li {
   align-items: center;
 }
 
+li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .link {
   color: white;
   text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
 }
 
 .logo {
@@ -36,4 +37,9 @@ li {
   box-shadow: none;
   border: none;
   align-items: center;
+}
+
+#username {
+  cursor: text;
+  text-decoration: none;
 }

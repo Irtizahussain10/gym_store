@@ -2,9 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CategoryIcon from "@material-ui/icons/Category";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
+import { Props } from "../../interfaces/interfaces";
 import "./navbar.css";
 
-class NavBar extends React.Component {
+class NavBar extends React.Component<Props> {
+  constructor(props: Props) {
+    super(props);
+  }
+
+  handleLogout = () => {
+    localStorage.clear();
+    this.props.setLoggedIn(
+      JSON.parse(localStorage.getItem("isLoggedIn") as string) === true
+    );
+  };
+
   render() {
     return (
       <header className="navBar">
@@ -34,12 +46,30 @@ class NavBar extends React.Component {
               <ContactSupportIcon /> Contact us
             </li>
           </Link>
-          <Link to="/login" className="link">
-            <li id="login">Login</li>
-          </Link>
-          <Link to="/signup" className="link">
-            <li id="signup">Signup</li>
-          </Link>
+          {!this.props.isLoggedIn ? (
+            <>
+              <Link to="/login" className="link">
+                <li id="login">Login</li>
+              </Link>
+              <Link to="/signup" className="link">
+                <li id="signup">Signup</li>
+              </Link>
+            </>
+          ) : (
+            <>
+              <li id="username">
+                {(localStorage.getItem("name") as string).split(" ")[0]}
+              </li>
+              <li
+                id="logout"
+                onClick={() => {
+                  this.handleLogout();
+                }}
+              >
+                Logout
+              </li>
+            </>
+          )}
         </ul>
       </header>
     );
