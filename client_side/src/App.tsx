@@ -13,6 +13,7 @@ class App extends React.Component {
 
 export default App;
 
+//add isLoading functionality
 //remove kabar from contactUs.css
 //refactor code in singleItem.tsx
 //ending any type

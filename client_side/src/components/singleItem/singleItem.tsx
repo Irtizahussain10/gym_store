@@ -2,6 +2,7 @@ import React from "react";
 import { dumbbellStore, benches, machines } from "../../store";
 import { withRouter } from "react-router";
 import OrderForm from "./orderForm";
+import Comments from "./comment";
 
 class SingleItem extends React.Component<any> {
   constructor(props: any) {
@@ -53,9 +54,10 @@ class SingleItem extends React.Component<any> {
             <OrderForm
               hideOrderForm={this.hideOrderForm}
               isLoggedIn={this.props.isLoggedIn}
-              price={data.price} 
+              price={data.price}
             />
           ) : null}
+          <Comments isLoggedIn={this.props.isLoggedIn} item={data.type} />
         </div>
       );
     } else if ((item = "bench")) {
@@ -85,9 +87,10 @@ class SingleItem extends React.Component<any> {
             <OrderForm
               hideOrderForm={this.hideOrderForm}
               isLoggedIn={this.props.isLoggedIn}
-              price={data.price} 
+              price={data.price}
             />
           ) : null}
+          <Comments isLoggedIn={this.props.isLoggedIn} item={data.type} />
         </div>
       );
     } else if ((item = "machine")) {
@@ -117,9 +120,10 @@ class SingleItem extends React.Component<any> {
             <OrderForm
               hideOrderForm={this.hideOrderForm}
               isLoggedIn={this.props.isLoggedIn}
-              price={data.price} 
+              price={data.price}
             />
           ) : null}
+          <Comments isLoggedIn={this.props.isLoggedIn} item={data.type} />
         </div>
       );
     } else {

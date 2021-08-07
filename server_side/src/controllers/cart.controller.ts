@@ -10,6 +10,7 @@ interface Order {
   item: string;
   quantity: number;
   status: string;
+  price: string;
 }
 
 class cartControllers {
