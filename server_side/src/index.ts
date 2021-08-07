@@ -4,6 +4,8 @@ import helmet from "helmet";
 import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 import userControllers from "./controllers/users.controller";
+import cartControllers from "./controllers/cart.controller";
+import cartRouter from "./routes/cart.routes";
 import Router from "./routes/users.routes";
 
 dotenv.config();
@@ -22,7 +24,7 @@ app.use(
     extended: false,
   })
 );
-app.use("/", Router);
+app.use("/", Router, cartRouter);
 
 class connect {
   static Connect() {
@@ -35,6 +37,7 @@ connect
   .Connect()
   .then((client) => {
     userControllers.usersClient(client);
+    cartControllers.cartClient(client);
   })
   .then(() => {
     app.listen(port, () => {
@@ -47,3 +50,4 @@ connect
 
 //validate user data
 //jwt token
+//remove any

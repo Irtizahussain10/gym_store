@@ -1,7 +1,6 @@
 import React from "react";
 
 interface Props {
-  email: string;
   price: string;
   isLoggedIn: boolean;
   hideOrderForm: () => void;

@@ -53,8 +53,7 @@ class SingleItem extends React.Component<any> {
             <OrderForm
               hideOrderForm={this.hideOrderForm}
               isLoggedIn={this.props.isLoggedIn}
-              price={data.price}
-              email={localStorage.getItem("email") as string}
+              price={data.price} 
             />
           ) : null}
         </div>
@@ -86,8 +85,7 @@ class SingleItem extends React.Component<any> {
             <OrderForm
               hideOrderForm={this.hideOrderForm}
               isLoggedIn={this.props.isLoggedIn}
-              price={data.price}
-              email={localStorage.getItem("email") as string}
+              price={data.price} 
             />
           ) : null}
         </div>
@@ -119,8 +117,7 @@ class SingleItem extends React.Component<any> {
             <OrderForm
               hideOrderForm={this.hideOrderForm}
               isLoggedIn={this.props.isLoggedIn}
-              price={data.price}
-              email={localStorage.getItem("email") as string}
+              price={data.price} 
             />
           ) : null}
         </div>

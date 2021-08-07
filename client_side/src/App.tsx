@@ -13,6 +13,7 @@ class App extends React.Component {
 
 export default App;
 
+//remove kabar from contactUs.css
 //refactor code in singleItem.tsx
 //ending any type
 //ending repeatability in store

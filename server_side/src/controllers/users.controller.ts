@@ -9,7 +9,11 @@ interface Credentials {
 
 class userControllers {
   static async usersClient(client: MongoClient) {
-    users = await client.db("gym_store").collection("users");
+    if (!users) {
+      users = await client.db("gym_store").collection("users");
+    } else {
+      return;
+    }
   }
 
   static async usersSignin(credentials: Credentials) {
