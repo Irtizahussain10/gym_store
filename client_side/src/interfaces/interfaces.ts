@@ -1,4 +1,5 @@
 export interface machine {
+  id: number;
   item: string;
   type: string;
   price: string;

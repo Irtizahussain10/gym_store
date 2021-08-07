@@ -19,3 +19,8 @@
 .description {
   padding: 70px 0;
 }
+
+.category-link {
+  text-decoration: none;
+  color: black;
+}
