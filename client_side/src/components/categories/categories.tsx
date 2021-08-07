@@ -38,7 +38,7 @@ class Categories extends React.Component {
           <div className="category">
             <img
               className="image"
-              src="https://static.sportzbusiness.com/uploads/2020/05/Cable-Machine.jpg"
+              src="https://images.olx.com.pk/thumbnails/166623725-240x180.jpeg"
               alt="gym item"
             />
             <p className="description">

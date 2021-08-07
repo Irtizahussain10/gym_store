@@ -65,7 +65,7 @@ function Routes() {
 
         <Switch>
           <Route exact path="/store/:item/:id">
-            <SingleItem />
+            <SingleItem isLoggedIn={isLoggedIn}/>
           </Route>
         </Switch>
 

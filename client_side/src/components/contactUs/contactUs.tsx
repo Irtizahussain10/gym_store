@@ -2,7 +2,11 @@ import React, { ChangeEvent } from "react";
 import "./contactUs.css";
 
 class ContactUs extends React.Component {
-  contactDetails = ["abc@xyz.com", "444444", "44444"];
+  contactDetails = [
+    "azanaliabbasi2196@gmail.com",
+    "0335-208447",
+    "0335-208447",
+  ];
 
   state = {
     contactOption: this.contactDetails[0],
