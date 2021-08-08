@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import { MongoClient } from "mongodb";
 import userControllers from "./controllers/users.controller";
 import cartControllers from "./controllers/cart.controller";
+import commentControllers from "./controllers/comment.controller";
+import commentRouter from "./routes/comments.routes";
 import cartRouter from "./routes/cart.routes";
 import Router from "./routes/users.routes";
 
@@ -24,7 +26,7 @@ app.use(
     extended: false,
   })
 );
-app.use("/", Router, cartRouter);
+app.use("/", Router, cartRouter, commentRouter);
 
 class connect {
   static Connect() {
@@ -38,6 +40,7 @@ connect
   .then((client) => {
     userControllers.usersClient(client);
     cartControllers.cartClient(client);
+    commentControllers.commentClient(client);
   })
   .then(() => {
     app.listen(port, () => {
@@ -48,6 +51,7 @@ connect
     process.exit(1);
   });
 
+//authorization for posting comment aur accessing or posting other data
 //validate user data
 //jwt token
 //remove any

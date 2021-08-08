@@ -123,7 +123,7 @@ class SingleItem extends React.Component<any> {
               price={data.price}
             />
           ) : null}
-          <Comments isLoggedIn={this.props.isLoggedIn} item={data.type} />
+          <Comments isLoggedIn={this.props.isLoggedIn} item={data.type}/>
         </div>
       );
     } else {
