@@ -6,10 +6,6 @@ import { Props } from "../../interfaces/interfaces";
 import "./navbar.css";
 
 class NavBar extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
-
   handleLogout = () => {
     localStorage.clear();
     this.props.setLoggedIn(

@@ -20,14 +20,9 @@ commentRouter.post("/postComment", async (req: Request, res: Response) => {
   }
 });
 
-commentRouter.get("/getComments/:item", async (req: Request, res: Response) => {
+commentRouter.post("/getComments/:item", async (req: Request, res: Response) => {
   try {
     let comments = await commentControllers.getComments(req.params.item);
-    if (!comments[0]) {
-      res.status(400).json({
-        email: "Incorrect email id or password",
-      });
-    }
     if (comments[0]) {
       res.status(200).json(comments);
     }

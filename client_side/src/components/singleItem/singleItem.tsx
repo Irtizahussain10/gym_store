@@ -5,10 +5,6 @@ import OrderForm from "./orderForm";
 import Comments from "./comment";
 
 class SingleItem extends React.Component<any> {
-  constructor(props: any) {
-    super(props);
-  }
-
   state = {
     showOrderForm: false,
   };
@@ -57,7 +53,10 @@ class SingleItem extends React.Component<any> {
               price={data.price}
             />
           ) : null}
-          <Comments isLoggedIn={this.props.isLoggedIn} item={data.type} />
+          <Comments
+            isLoggedIn={this.props.isLoggedIn}
+            item={data.type.concat(" ", data.material, data.item)}
+          />
         </div>
       );
     } else if ((item = "bench")) {
@@ -90,7 +89,10 @@ class SingleItem extends React.Component<any> {
               price={data.price}
             />
           ) : null}
-          <Comments isLoggedIn={this.props.isLoggedIn} item={data.type} />
+          <Comments
+            isLoggedIn={this.props.isLoggedIn}
+            item={data.type.concat(" ", data.item)}
+          />
         </div>
       );
     } else if ((item = "machine")) {
@@ -123,7 +125,10 @@ class SingleItem extends React.Component<any> {
               price={data.price}
             />
           ) : null}
-          <Comments isLoggedIn={this.props.isLoggedIn} item={data.type}/>
+          <Comments
+            isLoggedIn={this.props.isLoggedIn}
+            item={data.type.concat(" ", data.item)}
+          />
         </div>
       );
     } else {

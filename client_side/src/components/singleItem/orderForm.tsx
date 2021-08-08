@@ -8,10 +8,6 @@ interface Props {
 }
 
 class OrderForm extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-  }
-
   state = {
     mobileNumber: "",
     address: "",
