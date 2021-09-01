@@ -1,4 +1,4 @@
-export interface machine {
+export interface gymItem {
   id: number;
   item: string;
   type: string;
@@ -6,11 +6,6 @@ export interface machine {
   availability: string;
   company: string;
   image: string;
-}
-
-export interface bench extends machine {}
-
-export interface dumbbell extends machine {
   material: string;
 }
 
@@ -20,7 +15,47 @@ export interface Credentials {
   password: string;
 }
 
-export interface Props {
+export interface loginProps {
   isLoggedIn: boolean;
-  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  setLoggedIn: (value: boolean) => void;
+}
+
+export interface loginConstructor {
+  email: string;
+  password: string;
+}
+
+export interface commentProps {
+  isLoggedIn: boolean;
+  item: string;
+}
+
+export interface allComments {
+  name: string;
+  comment: string;
+}
+
+export interface commentState {
+  myComment: string;
+  allComments: allComments[];
+  reloadComments: boolean;
+}
+
+export interface itemProps {
+  data: gymItem;
+  displayOrderForm: () => void;
+  showOrderForm: boolean;
+  hideOrderForm: () => void;
+  isLoggedIn: boolean;
+}
+
+export interface orderProps {
+  price: string;
+  isLoggedIn: boolean;
+  hideOrderForm: () => void;
+}
+
+export interface storeDisplayProps {
+  data: gymItem[];
+  type: string;
 }

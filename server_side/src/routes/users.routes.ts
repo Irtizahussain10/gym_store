@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
 import userControllers from "../controllers/users.controller";
 
-let Router = express.Router();
+let userRouter = express.Router();
 
-Router.post("/signUp", async (req: Request, res: Response) => {
+userRouter.post("/signUp", async (req: Request, res: Response) => {
   try {
     let result = await userControllers.usersSignin(req.body);
     if (result[0].acknowledged) {
@@ -20,7 +20,7 @@ Router.post("/signUp", async (req: Request, res: Response) => {
   }
 });
 
-Router.post("/login", async (req: Request, res: Response) => {
+userRouter.post("/login", async (req: Request, res: Response) => {
   try {
     let user = await userControllers.userLogin(req.body);
     if (!user[0]) {
@@ -38,4 +38,4 @@ Router.post("/login", async (req: Request, res: Response) => {
   }
 });
 
-export default Router;
+export default userRouter;

@@ -1,45 +1,53 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
+import {
+  commentProps,
+  allComments,
+  commentState,
+} from "../../interfaces/interfaces";
 
-interface Props {
-  isLoggedIn: boolean;
-  item: string;
-}
-
-interface allComments {
-  name: string;
-  comment: string;
-}
-
-function Comments(props: Props) {
-  let [myComment, setComment] = React.useState("");
-  let [allComments, setAllComments] = React.useState<allComments[]>([]);
-  let [reloadComments, setReloadComments] = React.useState(false);
-
-  useEffect(() => {
+class Comments extends React.Component<commentProps, commentState> {
+  constructor(props: commentProps) {
+    super(props);
+    this.state = {
+      myComment: "",
+      allComments: [] as allComments[],
+      reloadComments: false,
+    };
+  }
+  getComments = () => {
     axios
-      .post(`http://localhost:5000/getComments/${props.item}`)
+      .post(`http://localhost:5000/getComments/${this.props.item}`)
       .then((res) => {
-        setAllComments(res.data);
-        setReloadComments(false);
+        this.setState({ allComments: res.data });
+        this.setState({ reloadComments: false });
       })
       .catch(console.log);
-  }, [reloadComments]);
+  };
 
-  const postComment = (e: React.FormEvent<HTMLFormElement>) => {
+  componentDidMount() {
+    this.getComments();
+  }
+  componentDidUpdate(_prevProps: commentProps, prevState: commentState) {
+    if (prevState.reloadComments !== this.state.reloadComments) {
+      this.getComments();
+    }
+  }
+
+  postComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.currentTarget.reset();
     e.preventDefault();
     axios
       .post("http://localhost:5000/postComment", {
-        comment: myComment,
+        comment: this.state.myComment,
         name: localStorage.getItem("name") as string,
         email: localStorage.getItem("email") as string,
-        item: props.item,
+        item: this.props.item,
       })
       .then((res) => {
         if (res.status === 200) {
           alert("Your comment has been placed");
-          setReloadComments(true);
+          this.setState({ reloadComments: true });
         }
       })
       .catch((e) => {
@@ -55,45 +63,47 @@ function Comments(props: Props) {
       });
   };
 
-  return (
-    <div>
-      {!props.isLoggedIn ? (
-        <p>Login to post a comment</p>
-      ) : (
-        <p>Post a comment</p>
-      )}
-      {props.isLoggedIn ? (
-        <form onSubmit={postComment}>
-          <textarea
-            rows={4}
-            cols={50}
-            placeholder="Post a comment(maximum 50 characters)"
-            onChange={(e) => {
-              setComment(e.target.value);
-            }}
-            required
-          />
-          <br />
-          <input type="submit" value="Post" />
-        </form>
-      ) : null}
-      {allComments[0] ? (
-        <div>
-          {allComments.map((comment, key) => {
-            return (
-              <div key={key}>
-                <span>{comment.name}</span>
-                <br />
-                <span>{comment.comment}</span>
-              </div>
-            );
-          })}
-        </div>
-      ) : (
-        <p>No comments to show</p>
-      )}
-    </div>
-  );
+  render() {
+    return (
+      <div>
+        {!this.props.isLoggedIn ? (
+          <p>Login to post a comment</p>
+        ) : (
+          <p>Post a comment</p>
+        )}
+        {this.props.isLoggedIn ? (
+          <form onSubmit={this.postComment}>
+            <textarea
+              rows={4}
+              cols={50}
+              placeholder="Post a comment(maximum 50 characters)"
+              onChange={(e) => {
+                this.setState({ myComment: e.target.value });
+              }}
+              required
+            />
+            <br />
+            <input type="submit" value="Post" />
+          </form>
+        ) : null}
+        {this.state.allComments[0] ? (
+          <div>
+            {this.state.allComments.map((comment, key) => {
+              return (
+                <div key={key}>
+                  <span>{comment.name}</span>
+                  <br />
+                  <span>{comment.comment}</span>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <p>No comments to show</p>
+        )}
+      </div>
+    );
+  }
 }
 
 export default Comments;

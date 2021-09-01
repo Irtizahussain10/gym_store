@@ -1,16 +1,15 @@
 import axios from "axios";
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { Credentials, Props } from "../../interfaces/interfaces";
+import {
+  Credentials,
+  loginProps,
+  loginConstructor,
+} from "../../interfaces/interfaces";
 import "./login.css";
 
-interface Constructor {
-  email: string;
-  password: string;
-}
-
-class Login extends React.Component<Props, Constructor> {
-  constructor(props: Props) {
+class Login extends React.Component<loginProps, loginConstructor> {
+  constructor(props: loginProps) {
     super(props);
     this.state = {
       email: "",

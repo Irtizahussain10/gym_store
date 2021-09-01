@@ -1,18 +1,21 @@
 import React from "react";
-import {Link} from "react-router-dom";
-import { dumbbellStore } from "../../store";
-import { dumbbell } from "../../interfaces/interfaces";
+import { Link } from "react-router-dom";
+import { gymItem, storeDisplayProps } from "../../interfaces/interfaces";
 
-class DumbbellStore extends React.Component {
+class StoreDisplay extends React.Component<storeDisplayProps> {
   render() {
     let key = -1;
     return (
       <>
-        {dumbbellStore.map((item: dumbbell) => {
+        {this.props.data.map((item: gymItem) => {
           ++key;
           return (
-            <Link to={`/store/dumbbell/${item.id}`} className="item-link">
-              <div key={key} className="storeItem">
+            <Link
+              key={key}
+              to={`/store/${this.props.type}/${item.id}`}
+              className="item-link"
+            >
+              <div className="storeItem">
                 <img alt="gym item" src={item.image} />
                 <br />
                 <span className="material">{item.material} </span>
@@ -37,4 +40,4 @@ class DumbbellStore extends React.Component {
   }
 }
 
-export default DumbbellStore;
+export default StoreDisplay;

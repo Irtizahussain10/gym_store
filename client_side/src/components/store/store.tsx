@@ -1,16 +1,15 @@
 import React from "react";
-import DumbbellStore from "./dumbbellStore";
-import MachineStore from "./machineStore";
-import BenchStore from "./benchStore";
+import { dumbbells, benches, machines } from "../../store";
+import StoreDisplay from "./storeDisplay";
 import "./store.css";
 
 class Store extends React.Component {
   render() {
     return (
       <div className="container">
-        <DumbbellStore />
-        <MachineStore />
-        <BenchStore />
+        <StoreDisplay data={dumbbells} type={"dumbbell"} />
+        <StoreDisplay data={benches} type={"bench"} />
+        <StoreDisplay data={machines} type={"machine"} />
       </div>
     );
   }

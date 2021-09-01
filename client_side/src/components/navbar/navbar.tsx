@@ -2,16 +2,44 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CategoryIcon from "@material-ui/icons/Category";
 import ContactSupportIcon from "@material-ui/icons/ContactSupport";
-import { Props } from "../../interfaces/interfaces";
+import { loginProps } from "../../interfaces/interfaces";
 import "./navbar.css";
+import axios from "axios";
 
-class NavBar extends React.Component<Props> {
+class NavBar extends React.Component<loginProps> {
   handleLogout = () => {
     localStorage.clear();
     this.props.setLoggedIn(
       JSON.parse(localStorage.getItem("isLoggedIn") as string) === true
     );
   };
+
+  state = {
+    base64: "",
+  };
+
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/getLogo", {
+        responseType: "arraybuffer",
+      })
+      .then((res) => {
+        this.setState({
+          base64: Buffer.from(res.data, "binary").toString("base64"),
+        });
+      })
+      .catch((e) => {
+        if (e.response.status === 400) {
+          alert("Incorrect email or password");
+        } else if (e.response.status === 500) {
+          alert("An error occured within the server! Please try again");
+        } else {
+          alert(
+            "Oops an error occured! Please check your internet connection."
+          );
+        }
+      });
+  }
 
   render() {
     return (
@@ -22,7 +50,7 @@ class NavBar extends React.Component<Props> {
               <img
                 className="logo"
                 alt=""
-                src="src\584c2ea7-11b8-4f40-a26d-ba5dddf9c97f.jpg"
+                src={`data:image/jpg;charset=utf-8;base64,${this.state.base64}`}
               />
             </li>
           </Link>

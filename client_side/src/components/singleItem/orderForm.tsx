@@ -1,13 +1,8 @@
 import axios from "axios";
 import React from "react";
-
-interface Props {
-  price: string;
-  isLoggedIn: boolean;
-  hideOrderForm: () => void;
-}
-
-class OrderForm extends React.Component<Props> {
+import { orderProps } from "../../interfaces/interfaces";
+ 
+class OrderForm extends React.Component<orderProps> {
   state = {
     mobileNumber: "",
     address: "",
